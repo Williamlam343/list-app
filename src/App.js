@@ -4,8 +4,8 @@ import Task from "./components/Task";
 
 function App() {
 
-  let storage = JSON.parse(localStorage.getItem("List")) || [{ task: "List-App", id: 1 }, { task: "Homework", id: 2 }]
-
+  const [storage, setStorageUpdate] = useState(JSON.parse(localStorage.getItem("List"))
+    || [{ task: "Task A", id: 1 }, { task: "Task B", id: 2 }, { task: "Task C", id: 3 }])
   const [input, setInput] = useState("")
   const [todo, setTodo] = useState(storage)
 
