@@ -6,7 +6,7 @@ export default function Task({ item, id }) {
 
 
     const [storage, setStorageUpdate] = useState(JSON.parse(localStorage.getItem("List")))
-
+    console.log(JSON.stringify(storage))
     function moveHandler(id, direction) {
 
         const position = storage.findIndex((item) => item.id === id)
@@ -21,7 +21,7 @@ export default function Task({ item, id }) {
         newItems.splice(position + direction, 0, item)
         localStorage.setItem("List", JSON.stringify(newItems))
         setStorageUpdate(newItems)
-        console.log(storage)
+
         window.location.reload()
 
     }
