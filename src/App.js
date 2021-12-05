@@ -1,40 +1,66 @@
 import { useState, useEffect } from "react";
 import Task from "./components/Task";
-
+const UP = -1
+const DOWN = 1
 
 function App() {
 
-  const storage = JSON.parse(localStorage.getItem("List"))
-    || [{ task: "Task A", id: 1 }, { task: "Task B", id: 2 }, { task: "Task C", id: 3 }]
-  useEffect(() => {
-
-    localStorage.getItem("List")
-
-
-  }, [])
+  const [storage, setStorageUpdate] = useState(JSON.parse(localStorage.getItem("List"))
+    || [{ task: "Task A", id: 1 }, { task: "Task B", id: 2 }, { task: "Task C", id: 3 }])
   const [input, setInput] = useState("")
-  const [todo, setTodo] = useState(storage)
+
+
+  function moveHandler(id, direction) {
+
+    const position = storage.findIndex((item) => item.id === id)
+    if (position < 0) {
+      throw new Error("Given item not found.")
+    } else if (direction === UP && position === 0 || direction === DOWN && position === storage.length - 1) {
+      return
+    }
+    const item = storage[position]
+    const newItems = storage.filter((i) => i.id !== id)
+    newItems.splice(position + direction, 0, item)
+    setStorageUpdate(newItems)
+    localStorage.setItem("List", JSON.stringify(newItems))
+
+  }
+
+  function deleteHandler(id) {
+    let filteredItem = storage.filter((item) => { return item.id !== id })
+    console.log(filteredItem)
+    setStorageUpdate(filteredItem)
+    localStorage.setItem("List", JSON.stringify(filteredItem))
+
+  }
 
   if (!input) {
-    localStorage.setItem("List", JSON.stringify(todo))
+    localStorage.setItem("List", JSON.stringify(storage))
   }
 
   if (!storage) {
-    let stringifiedData = JSON.stringify(todo)
+    let stringifiedData = JSON.stringify(storage)
     localStorage.setItem("List", stringifiedData)
   }
 
+  function idHandler() {
 
-  function inputHandler(e) {
-    setInput(e.target.value)
+    let idArray = storage.map((item) => item.id)
+    console.log(idArray.length)
+    if (!idArray.length) {
+      return 1
+    }
+
+    return Math.max(...idArray) + 1
   }
+
 
   function addTaskHandler(e) {
     e.preventDefault();
     if (input === "") {
       return
     }
-    setTodo([...todo, { task: input, id: todo.length + 1 }])
+    setStorageUpdate([...storage, { task: input, id: idHandler() }])
     setInput("")
   }
 
@@ -50,7 +76,7 @@ function App() {
         <input
           onChange={
             (e) => {
-              inputHandler(e)
+              setInput(e.target.value)
             }
 
           }
@@ -62,7 +88,13 @@ function App() {
       </form>
       <div className="d-flex my-4 justify-content-center">
         <ul>
-          {todo.map((item) => <Task key={item.id} id={item.id} item={item.task} />
+          {storage.map((item) => <Task
+            key={item.id}
+            id={item.id}
+            item={item.task}
+            deleteHandler={deleteHandler}
+            moveHandler={moveHandler}
+          />
 
           )}
 
