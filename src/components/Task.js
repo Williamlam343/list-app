@@ -1,38 +1,8 @@
-import React, { useState } from "react"
+import React from "react"
 const UP = -1
 const DOWN = 1
 
-export default function Task({ item, id }) {
-
-
-    const [storage, setStorageUpdate] = useState(JSON.parse(localStorage.getItem("List")))
-    console.log(JSON.stringify(storage))
-    function moveHandler(id, direction) {
-
-        const position = storage.findIndex((item) => item.id === id)
-        if (position < 0) {
-            throw new Error("Given item not found.")
-        } else if (direction === UP && position === 0 || direction === DOWN && position === storage.length - 1) {
-            return
-        }
-
-        const item = storage[position]
-        const newItems = storage.filter((i) => i.id !== id)
-        newItems.splice(position + direction, 0, item)
-        localStorage.setItem("List", JSON.stringify(newItems))
-        setStorageUpdate(newItems)
-
-        window.location.reload()
-
-    }
-
-    function deleteHandler(id) {
-        let filteredItem = storage.filter((item) => { return item.id !== id })
-        localStorage.setItem("List", JSON.stringify(filteredItem))
-        setStorageUpdate(filteredItem)
-        window.location.reload()
-    }
-
+export default function Task({ moveHandler, deleteHandler, item, id }) {
 
     return (
         <div id={id} className="text-light m-2 d-flex container bg-dark p-2 rounded justify-content-sm-between">
