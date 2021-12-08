@@ -82,7 +82,6 @@ export default function Todo() {
     return (
 
         <>
-            <Header />
             <div className="todo-padding borderRadiusBot bg-color-white">
                 <h1 className="text-center text-upper textColor-brand">
                     List App

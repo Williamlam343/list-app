@@ -1,12 +1,12 @@
 /* Color variables */
 :root {
   --bg-color-white: white;
+  --bg-color: #f8f8f8;
   --brand-color: rgb(20, 63, 144);
   --brand-color10: rgba(20, 63, 144, 0.1);
   --brand-color70: rgba(20, 63, 144, 0.7);
   --brand-color80: rgba(20, 63, 144, 0.8);
   --brand-color90: rgba(20, 63, 144, 0.9);
-  --bg-color: #f8f8f8;
   --border-color: #cccccc;
   --task-color: rgb(8, 25, 57);
   --brand-red: #e51a1a;

@@ -26,8 +26,7 @@ export default function Task({ moveHandler, deleteHandler, item, id }) {
                 </button>
                 <button
                     className="btn-style"
-                    onClick={() => deleteHandler(id)}
-                >
+                    onClick={() => deleteHandler(id)}>
                     <FontAwesomeIcon
                         icon={faTimesCircle}
                         className="h3 textColor-red btn-focus-close" />
