@@ -1,0 +1,11 @@
+.inputBar {
+  height: 70px;
+  width: 72.5%;
+  border: #cccccc solid 1px;
+}
+
+.taskBtn {
+  height: 70px;
+  width: 22.5%;
+  padding: 10px 5px 10px 5px;
+}

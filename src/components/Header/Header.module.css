@@ -1,0 +1,15 @@
+.logoBar {
+  height: 120px;
+  width: 70%;
+  z-index: 0;
+  position: absolute;
+  border-radius: inherit;
+}
+
+.logoCompany {
+  display: block;
+  position: relative;
+  margin: auto;
+  padding-top: 46px;
+  margin-top: 5rem;
+}

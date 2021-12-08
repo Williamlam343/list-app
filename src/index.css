@@ -1,13 +1,157 @@
+/* Color variables */
+:root {
+  --bg-color-white: white;
+  --brand-color: rgb(20, 63, 144);
+  --brand-color10: rgba(20, 63, 144, 0.1);
+  --brand-color70: rgba(20, 63, 144, 0.7);
+  --brand-color80: rgba(20, 63, 144, 0.8);
+  --brand-color90: rgba(20, 63, 144, 0.9);
+  --bg-color: #f8f8f8;
+  --border-color: #cccccc;
+  --task-color: rgb(8, 25, 57);
+  --brand-red: #e51a1a;
+  --brand-red80: #ff4d4d;
+}
+
+/* HTML CSS */
 body {
+  background-color: var(--bg-color);
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Roboto";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1 {
+  font-size: 60px;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 36px;
+  font-weight: 800;
+  margin: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+input {
+  font-size: 34px;
+  background-color: var(--bg-color);
+}
+
+button {
+  text-align: center;
+  padding: 5px;
+  margin: 0 6px 0 6px;
+  background-color: inherit;
+  border: 0;
+}
+
+footer {
+  font-size: 16px;
+  padding-top: 5%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+/* Custom CSS */
+
+.container-gg {
+  margin: auto;
+  width: 100%;
+  height: 80vh;
+}
+
+.task-list-padding {
+  padding: 5% 5% 15% 5%;
+}
+
+.todo-padding {
+  padding: 5% 15% 15% 15%;
+}
+
+.divider {
+  background-color: var(--brand-color);
+  width: 100%;
+  height: 1px;
+  position: relative;
+}
+
+.btn-focus:hover {
+  color: var(--brand-color70);
+  background-color: white;
+  border-radius: 9999px;
+}
+
+.btn-focus-task:hover {
+  color: var(--brand-color90);
+  background-color: var(--brand-color90);
+  border-radius: 9999px;
+}
+
+.btn-focus-close:hover {
+  color: var(--brand-red80);
+}
+
+/* HELPER CSS */
+.text-upper {
+  text-transform: uppercase;
+}
+
+.bg-color-white {
+  background-color: var(--bg-color-white);
+}
+
+.brandColor-bg-10 {
+  background-color: var(--brand-color10);
+}
+
+.brandColor-bg {
+  background-color: var(--brand-color);
+}
+
+.textColor-brand {
+  color: var(--brand-color);
+}
+
+.textColor-red {
+  color: var(--brand-red);
+}
+
+.ptop-5 {
+  padding-top: 5%;
+}
+
+.plr-15 {
+  padding: 0 15% 0 15%;
+}
+
+.mtb-8 {
+  margin: 8% 0 8% 0;
+}
+
+.pr-5 {
+  padding-right: 5%;
+}
+
+.borderRadiusTop {
+  border-radius: 24px 24px 0 0;
+}
+
+.borderRadius-8 {
+  border-radius: 8px;
+}
+
+.borderRadiusBot {
+  border-radius: 0 0 24px 24px;
 }
